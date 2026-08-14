@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>D'cestas e Presentes - Cidreira</title>
+<title>Ateliê Oliveira - Cidreira</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial; background: #fdf8f5; color: #333; }
@@ -181,7 +181,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial; backgr
 </div>
 
 <div class="header">
-  <img src="atelie.jpg" alt="D'cestas e presentes">
+  <img src="atelie.jpg" alt="Ateliê Oliveira">
   <button class="menu-btn" onclick="toggleMenu()"><div></div><div></div><div></div></button>
   <div class="botoes-topo">
     <a href="https://wa.me/5551995702188?text=Ol%C3%A1%2C%20vim%20pelo%20site%2C%20desejo%20de%20ser%20atendido%28a%29%20por%20aqui." target="_blank" class="btn-icone btn-icone-whatsapp" title="WhatsApp">
@@ -202,7 +202,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial; backgr
 <div id="paginas-dinamicas"></div>
 <div id="sobre" class="page">
   <button class="voltar-btn" onclick="showPage('home')">← Voltar</button>
-  <div class="sobre"><h2>SOBRE NÓS</h2><p>Somos a D'cestas e presentes de Cidreira e região.</p></div>
+  <div class="sobre"><h2>SOBRE NÓS</h2><p>Somos o Ateliê Oliveira de Cidreira e região.</p></div>
 </div>
 <div class="rodape">Desenvolvido por <a href="https://wa.me/5551985108885" target="_blank">Edmilson Bittencourt</a></div>
 
@@ -221,7 +221,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial; backgr
 </div>
 
 <script>
-const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/11fxpMU9iX_U01qyMOAUfmcNTbw68ZZhg17dIM69frmI/export?format=csv";
+const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTFGAWC1Fqsq0xYLdolt-yst_tjcVl9M24GVg5KoYw3xIpJHcTLBYlcBo1P166Bur5nKxmMSH47scMS/pub?output=csv";
 const NUMERO_WHATSAPP = "5551995702188";
 let todasCategorias = [];
 let carrinho = [];
@@ -344,7 +344,7 @@ function preencherProdutos(dados) {
     const divCat = document.getElementById(`catalogo-${id}`);
     if(divCat) {
       divCat.innerHTML = produtosDaCat.length > 0
-       ? produtosDaCat.map(p => criarCard(p)).join('')
+      ? produtosDaCat.map(p => criarCard(p)).join('')
         : `<p style="text-align:center; padding:20px;">Nenhum produto em ${cat}</p>`;
     }
   });
@@ -451,7 +451,7 @@ function enviarPedido(e) {
     totalGeral += subtotal;
     listaProdutos += `${index + 1}. ${item.nome} - Qtd: ${item.qtd} - R$ ${subtotal.toLocaleString('pt-BR', {minimumFractionDigits: 2})}\n`;
   });
-  const mensagem = `NOVO PEDIDO\n\n${listaProdutos}\nTOTAL GERAL: R$ ${totalGeral.toLocaleString('pt-BR', {minimumFractionDigits: 2})}\n\nNOME: ${nome}\nTEL: ${telefone}\nENDERECO: ${endereco}\nPAGAMENTO: ${pagamento}\nOBS: ${obs}`;
+  const mensagem = `NOVO PEDIDO - ATELIÊ OLIVEIRA\n\n${listaProdutos}\nTOTAL GERAL: R$ ${totalGeral.toLocaleString('pt-BR', {minimumFractionDigits: 2})}\n\nNOME: ${nome}\nTEL: ${telefone}\nENDERECO: ${endereco}\nPAGAMENTO: ${pagamento}\nOBS: ${obs}`;
   window.open(`https://wa.me/${NUMERO_WHATSAPP}?text=${encodeURIComponent(mensagem)}`, '_blank');
   carrinho = []; atualizarBadge(); primeiraVezAdicionando = true; fecharPopup();
 }
